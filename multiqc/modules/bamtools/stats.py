@@ -65,13 +65,10 @@ def parse_reports(self):
         self.write_data_file(self.bamtools_stats_data, 'multiqc_bamtools_stats')
 
         # Add to general stats table
-        self.general_stats_headers['duplicates_pct'] = {
-            'title': '% Duplicates',
-            'description': '% Duplicate Reads',
-            'max': 100,
-            'min': 0,
-            'suffix': '%',
-            'scale': 'OrRd'
+        self.general_stats_headers['total_reads'] = {
+            'title': 'Total',
+            'description': 'Total Reads',
+            'scale': 'RdYlGn'
         }
         self.general_stats_headers['mapped_reads_pct'] = {
             'title': '% Mapped',
@@ -80,6 +77,14 @@ def parse_reports(self):
             'min': 0,
             'suffix': '%',
             'scale': 'RdYlGn'
+        }
+        self.general_stats_headers['duplicates_pct'] = {
+            'title': '% Duplicates',
+            'description': '% Duplicate Reads',
+            'max': 100,
+            'min': 0,
+            'suffix': '%',
+            'scale': 'OrRd'
         }
         for s_name in self.bamtools_stats_data:
             if s_name not in self.general_stats_data:
