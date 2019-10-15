@@ -81,6 +81,13 @@ def parse_reports(self):
             'suffix': '%',
             'scale': 'RdYlGn'
         }
+
+        self.general_stats_headers['mapped_reads'] = {
+            'title': 'Mapped Reads',
+            'description': 'Number of Mapped Reads',
+            'scale': 'RdYlGn'
+        }
+
         for s_name in self.bamtools_stats_data:
             if s_name not in self.general_stats_data:
                 self.general_stats_data[s_name] = dict()
